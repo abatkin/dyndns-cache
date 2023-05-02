@@ -62,4 +62,19 @@ I run this with an IAM User that has only the following policy statements:
     ]
 }
 ```
+## Running in Docker
+
+After building, you will need to mount an AWS credentials file, the settings file, and probably the cache file, and set the respective environment variables. For example:
+
+```
+docker container run --rm -it \
+    -v ~/aws-dns-creds.txt:/root/.aws/credentials \
+    -v ~/dyndns-settings.txt:/dyndns-settings.txt \
+    -e DYNDNS_SETTINGS_FILE=/dyndns-settings.txt \
+    -v ~/dyndns-cache:/dyndns-cache \
+    -e DYNDNS_CACHE=/dyndns-cache/ip.txt \
+    container:tag
+```
+
+
 

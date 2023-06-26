@@ -10,7 +10,7 @@ RUN git clone https://github.com/abatkin/routeros-utils.git && source ~/.cargo/e
 
 FROM alpine:3.17
 
-COPY --from=0 routeros-utils/target/release/routeros-utils route53-utils/target/release/route53-util /usr/bin
+COPY --from=0 routeros-utils/target/release/routeros-utils route53-utils/target/release/route53-util /usr/bin/
 
 COPY dyndns.sh /usr/bin/dyndns.sh
 
